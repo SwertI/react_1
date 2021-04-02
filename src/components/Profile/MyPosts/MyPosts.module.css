@@ -1,0 +1,13 @@
+.postsBlock {
+    padding: 10px;
+    text-align: center;
+}
+.posts {
+    margin-top: 10px;
+}
+button {
+    margin-right: 20px;
+}
+.postsBlock div {
+    text-align: center;
+}
