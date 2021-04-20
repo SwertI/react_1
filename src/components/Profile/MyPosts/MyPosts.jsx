@@ -20,14 +20,6 @@ const MyPosts = (props) => {
             <div>New Posts</div>
             <div className={s.posts}>
                 {postsElements}
-                {/* <Post
-                    message={posteData[0].message}
-                    likesCounts={posteData[0].likesCount}
-                />
-                <Post
-                    message={posteData[1].message}
-                    likesCounts={posteData[1].likesCount}
-                /> */}
             </div>
         </div>
     )

@@ -2,11 +2,21 @@
     background-color: rgb(29, 102, 11);
     grid-area: nav;
     padding: 20px;
+    text-align: center;
+    height: 100%;
 }
 .item a{
     color: white;
     text-decoration: none;
 }
+.item {
+    margin: 30px;
+    text-transform: uppercase;
+    font-size: 20px;
+}
 .item a.activeLink{
     color:tomato
+}
+.settingsBtn {
+    margin-top: 150px;
 }
