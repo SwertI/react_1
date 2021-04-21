@@ -1,12 +1,12 @@
 import s from './SideBar.module.css'
-import FriendsArea from './FriendsArea/FriendsArea.jsx'
-import Navbar from './Navbar/Navbar.jsx'
+import FriendsArea from './FriendsArea/FriendsArea'
+import Navbar from './Navbar/Navbar'
 
 const SideBar = (props) => {
     return (
         <div className={s.sidebar}>
             <Navbar />
-            <FriendsArea />
+            <FriendsArea friends={props.state.friends} />
         </div>
     )
 }
