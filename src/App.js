@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Profile from './components/Profile/Profile'
 import SideBar from './components/SideBar/SideBar'
+import { updateNewPostText } from './redux/state'
 
 const App = (props) => {
     return (
@@ -23,7 +24,7 @@ const App = (props) => {
                     <Route
                         path='/profile'
                         render={() => (
-                            <Profile state={props.state.profilePage} addPost={props.addPost}/>
+                            <Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
                         )}
                     />
                 </div>
