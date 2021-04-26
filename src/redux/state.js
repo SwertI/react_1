@@ -4,10 +4,10 @@ let store = {
             posts: [
                 { id: 1, message: 'Hi, how are you?', likesCount: 12 },
                 { id: 2, message: "It's my first post", likesCount: 11 },
-                { id: 3, message: "Ddadgdgdsag", likesCount: 11 },
-                { id: 4, message: "sSedfgg", likesCount: 1 },
+                { id: 3, message: 'Ddadgdgdsag', likesCount: 11 },
+                { id: 4, message: 'sSedfgg', likesCount: 1 },
             ],
-            newPostText: 'it-kamasutra.com'
+            newPostText: 'it-kamasutra.com',
         },
         dialogsPage: {
             messages: [
@@ -23,39 +23,52 @@ let store = {
         },
         SideBar: {
             friends: [
-                {id: 1, name: 'Deni', avatar: 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png'},
-                {id: 2, name: 'Jane', avatar: 'https://icons8.com/wp-content/uploads/2020/03/bab-yoda-1024x1024.jpeg'},
-                {id: 3, name: 'Moino', avatar: 'https://www.meme-arsenal.com/memes/6381871fb8afa41cab763e7309b86bfb.jpg'},
-                
+                {
+                    id: 1,
+                    name: 'Deni',
+                    avatar:
+                        'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png',
+                },
+                {
+                    id: 2,
+                    name: 'Jane',
+                    avatar:
+                        'https://icons8.com/wp-content/uploads/2020/03/bab-yoda-1024x1024.jpeg',
+                },
+                {
+                    id: 3,
+                    name: 'Moino',
+                    avatar:
+                        'https://www.meme-arsenal.com/memes/6381871fb8afa41cab763e7309b86bfb.jpg',
+                },
             ],
         },
+    },
+    _callSubscriber() {
+        console.log('State changed')
     },
     getState() {
         return this._state
     },
-    _callSubscriber () {
-        console.log('State changed')
-    },
-    addPost () {
-        let newPost ={
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        }
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._callSubscriber(this._state)
-    },
-    updateNewPostText (newText) {
-        this._state.profilePage.newPostText = newText
-        this._callSubscriber(this._state)
-    },
-    subscribe (observer) {
+    subscribe(observer) {
         this._callSubscriber = observer
-    } 
+    },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0,
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this._callSubscriber(this._state)
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText
+            this._callSubscriber(this._state)
+        }
+    },
 }
-
-
 
 export default store
 window.store = store
