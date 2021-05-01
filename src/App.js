@@ -1,3 +1,4 @@
+import React from 'react'
 import { Route } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import './App.css'
@@ -17,7 +18,7 @@ const App = (props) => {
                     <Route
                         path='/dialogs'
                         render={() => (
-                            <Dialogs state={props.state.dialogsPage} />
+                            <Dialogs store={props.store} />
                         )}
                     />
                     <Route
